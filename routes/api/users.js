@@ -10,17 +10,11 @@ const validateLoginInput = require("../../validation/login");
 const User = require("../../models/User");
 const authorization = require('../../config/auth')
 
-router.post('/test', (req, res) => {
- res.status(201).json(req.body)
-  res.header("Access-Control-Allow-Origin", "*");
-  return 0
-});
-
 // @route POST api/users/register
 // @desc Register user
 // @access Public
 router.post("/register", (req, res) => {
-  res.header("Access-Control-Allow-Origin", "*");
+
   // Form validation
   const { errors, isValid } = validateRegisterInput(req.body);
   // console.log(req.body)
@@ -75,15 +69,14 @@ router.post("/register", (req, res) => {
 // @route POST api/users/login
 // @desc Login user and return JWT token
 // @access Public
-router.post("/login", (req, res) => {
- 
- 
+router.use("/login", (req, res) => {
+  setToken({ status: 'running'})
+
   // Form validation
   const { errors, isValid } = validateLoginInput(req.body);
 
   // Check validation
   if (!isValid) {
-   res.setHeader('Access-Control-Allow-Origin', '*');
     return res.status(400).json(errors);
   }
 
@@ -96,7 +89,6 @@ router.post("/login", (req, res) => {
 
     // Check if user exists
     if (!user) {
-     res.setHeader('Access-Control-Allow-Origin', '*');
       return res.status(404).json({ emailnotfound: "Email not found" });
     }
 
@@ -110,7 +102,7 @@ router.post("/login", (req, res) => {
           id: user.id,
           username: user.username
         };
-       
+
         // Sign token
         jwt.sign(
           payload,
@@ -120,16 +112,13 @@ router.post("/login", (req, res) => {
             },
            (err, token) => {
               // สำหรับใส่ค่าเป็น JSON
-            res.setHeader('Access-Control-Allow-Origin', '*');
               res.json({
               token: "Bearer " + token
               });
             }
         );
-       res.status(201).json(req.body);
         console.log('Successfully login')
       } else {
-       res.setHeader('Access-Control-Allow-Origin', '*');
           return res
             .status(400)
             .json({ passwordincorrect: "Password incorrect"
