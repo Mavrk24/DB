@@ -35,7 +35,7 @@ mongoose
     db,
     { useNewUrlParser: true }
   )
-  .then(connect => console.log("MongoDB successfully connected"))
+  .then(() => console.log("MongoDB successfully connected"))
   .catch(err => console.log("cannot cannect to MONGODB"));
 console.log(39);
 
