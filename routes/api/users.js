@@ -16,7 +16,6 @@ router.post('/test', (req, res) => {
  }
  test.push(user)
  res.status(201).json(user)
-  })
   res.header("Access-Control-Allow-Origin", "*");
   return 0
 });
