@@ -45,6 +45,8 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 // Routes
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use("/api/users", users);
 console.log(48);
 const port = process.env.PORT || 8080; // process.env.port is Heroku's port if you choose to deploy the app there
