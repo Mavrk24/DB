@@ -110,7 +110,7 @@ router.post("/login", (req, res) => {
           id: user.id,
           username: user.username
         };
-
+       
         // Sign token
         jwt.sign(
           payload,
@@ -126,6 +126,7 @@ router.post("/login", (req, res) => {
               });
             }
         );
+       res.status(201).json(req.body);
         console.log('Successfully login')
       } else {
        res.setHeader('Access-Control-Allow-Origin', '*');
