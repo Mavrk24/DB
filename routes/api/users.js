@@ -70,8 +70,9 @@ router.post("/register", (req, res) => {
 // @desc Login user and return JWT token
 // @access Public
 router.use("/login", (req, res) => {
-  setToken({ status: 'running'})
-
+  res.send({
+    status: 'running'
+  });
   // Form validation
   const { errors, isValid } = validateLoginInput(req.body);
 
