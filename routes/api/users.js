@@ -9,9 +9,7 @@ const validateLoginInput = require("../../validation/login");
 // Load User model
 const User = require("../../models/User");
 const authorization = require('../../config/auth')
-const app = express(); 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+
 router.post("/test", (req, res) => {
   res.send({
     status: "running",
