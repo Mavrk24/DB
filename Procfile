@@ -1,1 +1,1 @@
-web: nodemon server && yarn start-api
+web: nodemon server 
