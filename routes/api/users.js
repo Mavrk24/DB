@@ -76,14 +76,14 @@ router.post("/register", (req, res) => {
 // @desc Login user and return JWT token
 // @access Public
 router.post("/login", (req, res) => {
- res.json(req.body)
- res.setHeader('Access-Control-Allow-Origin', '*');
+ 
  
   // Form validation
   const { errors, isValid } = validateLoginInput(req.body);
 
   // Check validation
   if (!isValid) {
+   res.setHeader('Access-Control-Allow-Origin', '*');
     return res.status(400).json(errors);
   }
 
@@ -96,6 +96,7 @@ router.post("/login", (req, res) => {
 
     // Check if user exists
     if (!user) {
+     res.setHeader('Access-Control-Allow-Origin', '*');
       return res.status(404).json({ emailnotfound: "Email not found" });
     }
 
@@ -119,6 +120,7 @@ router.post("/login", (req, res) => {
             },
            (err, token) => {
               // สำหรับใส่ค่าเป็น JSON
+            res.setHeader('Access-Control-Allow-Origin', '*');
               res.json({
               token: "Bearer " + token
               });
@@ -126,6 +128,7 @@ router.post("/login", (req, res) => {
         );
         console.log('Successfully login')
       } else {
+       res.setHeader('Access-Control-Allow-Origin', '*');
           return res
             .status(400)
             .json({ passwordincorrect: "Password incorrect"
