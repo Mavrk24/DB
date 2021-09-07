@@ -46,7 +46,9 @@ require("./config/passport")(passport);
 
 // Routes
 
-app.use("/api/users", users);
+app.use("/api/users", users => {
+  res.header('Access-Control-Allow-Origin', 'https://euhabit.netlify.app')
+})
 console.log(48);
 const port = process.env.PORT || 8080; // process.env.port is Heroku's port if you choose to deploy the app there
 
