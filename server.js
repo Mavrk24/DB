@@ -16,7 +16,7 @@ app.use('/login', (req, res) => {
   });
 });
 
-console.log(19)
+console.log(19);
 // Bodyparser middleware
 app.use(
   bodyParser.urlencoded({
@@ -24,10 +24,10 @@ app.use(
   })
 );
 app.use(bodyParser.json());
-console.log(27)
+console.log(27);
 // DB Config
 const db = require("./config/keys").mongoURI;
-console.log(30)
+console.log(30);
 // Connect to MongoDB
 mongoose
   .connect(
@@ -36,7 +36,7 @@ mongoose
   )
   .then(() => console.log("MongoDB successfully connected"))
   .catch(err => console.log(err));
-console.log(39)
+console.log(39);
 // Passport middleware
 app.use(passport.initialize());
 
@@ -45,7 +45,7 @@ require("./config/passport")(passport);
 
 // Routes
 app.use("/api/users", users);
-console.log(48)
+console.log(48);
 const port = process.env.PORT || 8080; // process.env.port is Heroku's port if you choose to deploy the app there
 
 app.listen(port, () => console.log(`Server up and running on port ${port} !`));
