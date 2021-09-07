@@ -1,10 +1,4 @@
 module.exports = {
-    mongoURI: "mongodb+srv://w741gz:wtk8492*tbQ@euhabit.d2cn5.mongodb.net/euHabit?retryWrites=true&w=majority",
-    secretOrKey: "MIIBOgIBAAJBALRKHKeyiRHi9XZiPXuvhQJj33PMsioWf2bnTWrOUsAT3vug3BH1
-C7Gh3EKpBLy3wzBUrec9sZhhkWycEyKRo/cCAwEAAQJASJWB3d4aIzJdopDAshgj
-E6hD4SorHJi8KCC9YV+5nwxz7WYUGEXUZ3UfVQsagL7roKUMfRvn8wfJ5NASJOuc
-cQIhAN0otfe7GRgPYQMwWCbU6xAkYJTSeXxzRzaA57LSwi5JAiEA0LEkpWLcpMnk
-ffawTgncZPcgG212c4rOkd6ntIeGQD8CIQCt0hJ7G7VUYLn53KRcGNqLfFvgfDB5
-rM0avGPe+6Ec6QIgR9D+FHAOECNuHy76gxB/qLsmcGnd/msBJU+jFMwilg8CID59
-qzZHVXcq87o4xanXLUk2LMTGWaie+wuyjdoIcnnV"
+    mongoURI: process.env.MONGODB_URI,
+    secretOrKey: process.env.secretOrKey
 };
