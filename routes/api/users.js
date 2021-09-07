@@ -10,6 +10,12 @@ const validateLoginInput = require("../../validation/login");
 const User = require("../../models/User");
 const authorization = require('../../config/auth')
 
+router.get("/test", (req, res) => {
+  return res.json({
+    status: "running"
+  })
+});
+
 // @route POST api/users/register
 // @desc Register user
 // @access Public
