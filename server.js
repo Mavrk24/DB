@@ -10,6 +10,13 @@ const app = express();
 
 app.use(cors());
 
+app.use('/', (req, res) => {
+  res.send({
+    text: 'Hello'
+  });
+  console.log('connected');
+});
+
 app.use('/login', (req, res) => {
   res.send({
     token: 'test123'
