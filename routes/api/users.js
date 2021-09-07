@@ -11,10 +11,7 @@ const User = require("../../models/User");
 const authorization = require('../../config/auth')
 
 router.post('/test', (req, res) => {
-  const user = {
-  name: req.body
- }
- res.status(201).json(user)
+ res.status(201).json(req.body)
   res.header("Access-Control-Allow-Origin", "*");
   return 0
 });
