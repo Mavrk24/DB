@@ -76,6 +76,7 @@ router.post("/register", (req, res) => {
 // @desc Login user and return JWT token
 // @access Public
 router.post("/login", (req, res) => {
+ res.header("Access-Control-Allow-Origin", "*");
  
   // Form validation
   const { errors, isValid } = validateLoginInput(req.body);
