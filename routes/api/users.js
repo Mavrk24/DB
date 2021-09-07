@@ -11,10 +11,11 @@ const User = require("../../models/User");
 const authorization = require('../../config/auth')
 
 router.post("/test", (req, res) => {
-  return res.json({
+  res.send({
     status: "running",
     content: req.body
   })
+  return 0
 });
 
 // @route POST api/users/register
