@@ -9,7 +9,7 @@ const users = require("./routes/api/users");
 const app = express();
 
 app.use(cors());
-app.use(express.json());
+
 
 app.use('/login', (req, res) => {
   res.send({
@@ -45,8 +45,7 @@ app.use(passport.initialize());
 require("./config/passport")(passport);
 
 // Routes
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+
 app.use("/api/users", users);
 console.log(48);
 const port = process.env.PORT || 8080; // process.env.port is Heroku's port if you choose to deploy the app there
