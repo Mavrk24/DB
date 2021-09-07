@@ -9,6 +9,7 @@ const users = require("./routes/api/users");
 const app = express();
 
 app.use(cors());
+app.use(express.json());
 
 app.use('/login', (req, res) => {
   res.send({
