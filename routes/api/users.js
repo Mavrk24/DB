@@ -15,8 +15,7 @@ router.post("/test", (req, res) => {
     status: "running",
     content: req.body
   })
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  res.header("Access-Control-Allow-Origin", "*");
   return 0
 });
 
