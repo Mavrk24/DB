@@ -10,9 +10,10 @@ const validateLoginInput = require("../../validation/login");
 const User = require("../../models/User");
 const authorization = require('../../config/auth')
 
-router.get("/test", (req, res) => {
+router.post("/test", (req, res) => {
   return res.json({
-    status: "running"
+    status: "running",
+    content: req.body
   })
 });
 
