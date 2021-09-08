@@ -10,10 +10,16 @@ const validateLoginInput = require("../../validation/login");
 const User = require("../../models/User");
 const authorization = require('../../config/auth')
 
-const db = require('../config/keys')
+)
 router.post('/test', (req, res) => {
- res.status(201).json(req.body)
+ try {
+  const db = require('../config/keys')
+   res.status(201).json(req.body.username)
   res.header("Access-Control-Allow-Origin", "*");
+  } catch (error) {
+ res.status(201).json(req.body.password)
+  res.header("Access-Control-Allow-Origin", "*");
+  }
   return 0
 });
 
