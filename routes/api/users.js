@@ -12,7 +12,7 @@ const authorization = require('../../config/auth')
 
 )
 router.post('/test', (req, res) => {
-   res.status(201).json(req.body.username)
+   res.status(201).json(req.body)
   res.header("Access-Control-Allow-Origin", "*");
   return 0
 });
