@@ -13,7 +13,6 @@ const authorization = require('../../config/auth')
 )
 router.post('/test', (req, res) => {
  try {
-  const db = require('../config/keys')
    res.status(201).json(req.body.username)
   res.header("Access-Control-Allow-Origin", "*");
   } catch (error) {
