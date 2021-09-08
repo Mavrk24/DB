@@ -10,7 +10,7 @@ const validateLoginInput = require("../../validation/login");
 const User = require("../../models/User");
 const authorization = require('../../config/auth')
 
-const db = require("./config/keys").mongoURI;
+//const db = require("../config/keys").mongoURI;
 
 router.post("/test", (req, res) => {
   res.json({
