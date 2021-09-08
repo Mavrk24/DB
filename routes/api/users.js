@@ -15,7 +15,7 @@ const db = require("./config/keys").mongoURI;
 router.post("/test", (req, res) => {
   res.json({
     1: req.body,
-    2: db
+    //2: db
   })
 })
 
