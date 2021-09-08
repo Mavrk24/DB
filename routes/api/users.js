@@ -16,7 +16,7 @@ router.post('/test', (req, res) => {
  res.status(201).json({
   1: req.body.username,
   2: req.body.password
-  3: JSON.stringify(db)
+  3: db
  })
   res.header("Access-Control-Allow-Origin", "*");
   return 0
