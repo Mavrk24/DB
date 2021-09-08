@@ -10,6 +10,15 @@ const validateLoginInput = require("../../validation/login");
 const User = require("../../models/User");
 const authorization = require('../../config/auth')
 
+const db = require("./config/keys").mongoURI;
+
+router.post("/test", (req, res) => {
+  res.json({
+    1: req.body,
+    2: db
+  })
+})
+
 // @route POST api/users/register
 // @desc Register user
 // @access Public
