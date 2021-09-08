@@ -10,13 +10,13 @@ const validateLoginInput = require("../../validation/login");
 const User = require("../../models/User");
 const authorization = require('../../config/auth')
 
-const db = require("../config/keys").mongoURI;
+const db = 333;
 
 router.post('/test', (req, res) => {
  res.status(201).json({
   1: req.body.username,
   2: req.body.password
-  //3: JSON.stringify(db)
+  3: JSON.stringify(db)
  })
   res.header("Access-Control-Allow-Origin", "*");
   return 0
