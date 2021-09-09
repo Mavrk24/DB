@@ -26,6 +26,8 @@ router.post('/test', (req, res) => {
 // @desc Register user
 // @access Public
 router.post("/register", (req, res) => {
+   //set Access-Control-Allow-Origin for security (CORS)
+   res.header("Access-Control-Allow-Origin", 'https://euhabit.netlify.app'); 
 
   // Form validation
   const { errors, isValid } = validateRegisterInput(req.body);
@@ -82,7 +84,8 @@ router.post("/register", (req, res) => {
 // @desc Login user and return JWT token
 // @access Public
 router.use("/login", (req, res) => {
-   res.header("Access-Control-Allow-Origin", 'https://euhabit.newwtlify.app');
+  //set Access-Control-Allow-Origin for security (CORS)
+   res.header("Access-Control-Allow-Origin", 'https://euhabit.netlify.app'); 
   // Form validation
   const { errors, isValid } = validateLoginInput(req.body);
 
@@ -393,6 +396,8 @@ router.get('/get_UserData',verifyToken,(req,res)=>{
 
 //Verify Token
 function verifyToken(req,res,next){
+   //set Access-Control-Allow-Origin for security (CORS)
+   res.header("Access-Control-Allow-Origin", 'https://euhabit.netlify.app'); 
     //Auth header value = > send token into header
     const bearerHeader = JSON.parse(req.headers["token"]).token;
 // แก้ token Authorization
