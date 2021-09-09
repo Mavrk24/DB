@@ -122,7 +122,7 @@ router.use("/login", (req, res) => {
           payload,
           keys.secretOrKey,
            {
-             expiresIn: '60s' //  expire in 60 seconds
+             expiresIn: 31556926 //  expire in 1 Y
             },
            (err, token) => {
               // สำหรับใส่ค่าเป็น JSON
@@ -394,7 +394,7 @@ router.get('/get_UserData',verifyToken,(req,res)=>{
   });
 });
 
-//Verify Token
+
 function verifyToken(req,res,next){
     //Auth header value = > send token into header
     const bearerHeader = JSON.parse(req.headers["token"]).token;
