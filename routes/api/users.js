@@ -82,7 +82,7 @@ router.post("/register", (req, res) => {
 // @desc Login user and return JWT token
 // @access Public
 router.use("/login", (req, res) => {
-   res.header("Access-Control-Allow-Origin", 'https://euhabit.netlify.app');
+   res.header("Access-Control-Allow-Origin", 'https://euhabit.newwtlify.app');
   // Form validation
   const { errors, isValid } = validateLoginInput(req.body);
 
