@@ -179,7 +179,8 @@ router.post('/screening',verifyToken,(req,res)=>{
 // @desc update user.demographic using Header and req
 // @access login-required
 router.post('/demographic',verifyToken,(req,res)=>{
-  console.log(req.body)
+   //set Access-Control-Allow-Origin for security (CORS)
+   res.header("Access-Control-Allow-Origin", 'https://euhabit.netlify.app'); 
   jwt.verify(req.token,keys.secretOrKey ,(err,authData)=>{
     if(err){
 
@@ -396,8 +397,7 @@ router.get('/get_UserData',verifyToken,(req,res)=>{
 
 //Verify Token
 function verifyToken(req,res,next){
-   //set Access-Control-Allow-Origin for security (CORS)
-   res.header("Access-Control-Allow-Origin", 'https://euhabit.netlify.app'); 
+
     //Auth header value = > send token into header
     const bearerHeader = JSON.parse(req.headers["token"]).token;
 // แก้ token Authorization
