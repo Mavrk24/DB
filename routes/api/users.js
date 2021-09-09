@@ -147,6 +147,7 @@ router.use("/login", (req, res) => {
 // @desc update user.screening using Header and req
 // @access login-required
 router.post('/screening',verifyToken,(req,res)=>{
+   res.header("Access-Control-Allow-Origin", 'https://euhabit.netlify.app');
   jwt.verify(req.token,keys.secretOrKey ,(err,authData)=>{
     if(err){
 
@@ -228,6 +229,7 @@ router.post('/demographic',verifyToken,(req,res)=>{
 
 // @access login-required
 router.post('/workplace',verifyToken,(req,res)=>{
+   res.header("Access-Control-Allow-Origin", 'https://euhabit.netlify.app');
   jwt.verify(req.token,keys.secretOrKey ,(err,authData)=>{
     if(err){
 
@@ -256,8 +258,10 @@ router.post('/workplace',verifyToken,(req,res)=>{
   });
 });
 
+
 // @access login-required
 router.post('/qtree',verifyToken,(req,res)=>{
+   res.header("Access-Control-Allow-Origin", 'https://euhabit.netlify.app');
   jwt.verify(req.token,keys.secretOrKey ,(err,authData)=>{
     if(err){
       //Forbidden
@@ -287,7 +291,7 @@ router.post('/qtree',verifyToken,(req,res)=>{
 
 // @access login-required
 router.post('/RecIntervention',verifyToken,(req,res)=>{
-  
+  res.header("Access-Control-Allow-Origin", 'https://euhabit.netlify.app');
   jwt.verify(req.token, keys.secretOrKey ,(err,authData)=>{
     if(err){
 
@@ -318,8 +322,10 @@ router.post('/RecIntervention',verifyToken,(req,res)=>{
   });
 });
 
+
 // @access login-required
 router.post('/ndi',verifyToken,(req,res)=>{
+   res.header("Access-Control-Allow-Origin", 'https://euhabit.netlify.app');
   jwt.verify(req.token,keys.secretOrKey ,(err,authData)=>{
     if(err){
       //Forbidden
@@ -347,6 +353,7 @@ router.post('/ndi',verifyToken,(req,res)=>{
   });
 });
 
+
 // @route GET api/users/logout
 // @desc Logout user
 // @access Public
@@ -355,13 +362,14 @@ router.get('/logout', (req, res) =>{
   res.redirect('/');
 });
 
+
 // @route GET api/users/get_Profile
 // @desc return user using Header 
 // @access login-required
 router.get('/get_UserData',verifyToken,(req,res)=>{
+   res.header("Access-Control-Allow-Origin", 'https://euhabit.netlify.app');
   jwt.verify(req.token,keys.secretOrKey ,(err,authData)=>{
     if(err){
-
       //Forbidden
       res.sendErr(403);
     } else {
@@ -393,6 +401,7 @@ router.get('/get_UserData',verifyToken,(req,res)=>{
     }
   });
 });
+
 
 //Verify Token
 function verifyToken(req,res,next){
