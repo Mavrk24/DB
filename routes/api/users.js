@@ -119,7 +119,7 @@ router.use("/login", (req, res) => {
           payload,
           keys.secretOrKey,
            {
-             expiresIn: 31556926 // 1 year in seconds
+             expiresIn: '60s' //  expire in 60 seconds
             },
            (err, token) => {
               // สำหรับใส่ค่าเป็น JSON
