@@ -12,13 +12,12 @@ const authorization = require('../../config/auth')
 
 
 router.post('/test', (req, res) => {
-      res.Header('Access-Control-Allow-Origin', 'https://euhabit.netlify.app')
    res.status(201).json({
       request: req.body.username,
       status: 'running',
       key: keys.secretOrKey
    })
-  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Origin", 'https://euhabit.netlify.app');
   return 0
 });
 
@@ -83,7 +82,7 @@ router.post("/register", (req, res) => {
 // @desc Login user and return JWT token
 // @access Public
 router.use("/login", (req, res) => {
-   res.Header('Access-Control-Allow-Origin', 'https://euhabit.netlify.app')
+   res.header("Access-Control-Allow-Origin", 'https://euhabit.netlify.app');
   // Form validation
   const { errors, isValid } = validateLoginInput(req.body);
 
