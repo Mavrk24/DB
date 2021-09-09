@@ -396,8 +396,6 @@ router.get('/get_UserData',verifyToken,(req,res)=>{
 
 //Verify Token
 function verifyToken(req,res,next){
-   //set Access-Control-Allow-Origin for security (CORS)
-   res.header("Access-Control-Allow-Origin", 'https://euhabit.netlify.app'); 
     //Auth header value = > send token into header
     const bearerHeader = JSON.parse(req.headers["token"]).token;
 // แก้ token Authorization
