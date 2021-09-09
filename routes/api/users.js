@@ -179,6 +179,7 @@ router.post('/screening',verifyToken,(req,res)=>{
 // @desc update user.demographic using Header and req
 // @access login-required
 router.post('/demographic',verifyToken,(req,res)=>{
+  console.log(req.body)
   jwt.verify(req.token,keys.secretOrKey ,(err,authData)=>{
     if(err){
 
@@ -395,7 +396,6 @@ router.get('/get_UserData',verifyToken,(req,res)=>{
 
 //Verify Token
 function verifyToken(req,res,next){
-
     //Auth header value = > send token into header
     const bearerHeader = JSON.parse(req.headers["token"]).token;
 // แก้ token Authorization
