@@ -26,9 +26,6 @@ router.post('/test', (req, res) => {
 // @desc Register user
 // @access Public
 router.post("/register", (req, res) => {
-   //set Access-Control-Allow-Origin for security (CORS)
-   res.header("Access-Control-Allow-Origin", 'https://euhabit.netlify.app'); 
-
   // Form validation
   const { errors, isValid } = validateRegisterInput(req.body);
   // console.log(req.body)
@@ -84,8 +81,6 @@ router.post("/register", (req, res) => {
 // @desc Login user and return JWT token
 // @access Public
 router.use("/login", (req, res) => {
-  //set Access-Control-Allow-Origin for security (CORS)
-   res.header("Access-Control-Allow-Origin", 'https://euhabit.netlify.app'); 
   // Form validation
   const { errors, isValid } = validateLoginInput(req.body);
 
