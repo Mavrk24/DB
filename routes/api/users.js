@@ -110,21 +110,20 @@ router.use("/login", (req, res) => {
     bcrypt.compare(password, user.password).then(isMatch => {
       
       if (isMatch) {
-         
-         const current_time = new Date() // create date obj for expirable-token
-         
         // User matched
         // Create JWT Payload
         const payload = {
-          username: user.username,
-           Time: current_time
+          id: user.id,
+          username: user.username
         };
 
         // Sign token
         jwt.sign(
           payload,
           keys.secretOrKey,
-           { expiresIn: '1h' },
+           {
+             expiresIn: '60s' //  expire in 60 seconds
+            },
            (err, token) => {
               // สำหรับใส่ค่าเป็น JSON
               res.json({
@@ -417,7 +416,6 @@ function verifyToken(req,res){
         //const bearerToken = bearer[1];
         //set the token
         req.token = bearerToken;
-
 
     }else{
         //Fobidden
