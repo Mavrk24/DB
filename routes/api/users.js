@@ -179,8 +179,6 @@ router.post('/screening',verifyToken,(req,res)=>{
 // @desc update user.demographic using Header and req
 // @access login-required
 router.post('/demographic',verifyToken,(req,res)=>{
-   //set Access-Control-Allow-Origin for security (CORS)
-   res.header("Access-Control-Allow-Origin", 'https://euhabit.netlify.app'); 
   jwt.verify(req.token,keys.secretOrKey ,(err,authData)=>{
     if(err){
 
