@@ -11,17 +11,6 @@ const User = require("../../models/User");
 const authorization = require('../../config/auth')
 
 
-router.post('/test', (req, res) => {
-   res.status(201).json({
-      request: req.body.username,
-      status: 'running',
-      key: keys.secretOrKey
-   })
-  res.header("Access-Control-Allow-Origin", 'https://euhabit.netlify.app');
-  return 0
-});
-
-
 // @route POST api/users/register
 // @desc Register user
 // @access Public
@@ -123,7 +112,9 @@ router.use("/login", (req, res) => {
             },
            (err, token) => {
               // สำหรับใส่ค่าเป็น JSON
-              res.send("Bearer " + token);
+              res.json({
+                token: "Bearer " + token
+              });
             }
         );
         console.log('Successfully login')
