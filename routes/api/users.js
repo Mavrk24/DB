@@ -119,13 +119,11 @@ router.use("/login", (req, res) => {
           payload,
           keys.secretOrKey,
            {
-             expiresIn: 31556926 //  expire in 1 Y
+             expiresIn: 1800 //  expire in 0.5 hour
             },
            (err, token) => {
               // สำหรับใส่ค่าเป็น JSON
-              res.json({
-              token: "Bearer " + token
-              });
+              res.send("Bearer " + token);
             }
         );
         console.log('Successfully login')
@@ -395,9 +393,9 @@ router.get('/get_UserData',verifyToken,(req,res)=>{
 });
 
 
-function verifyToken(req,res,next){
+function verifyToken(req,res){
     //Auth header value = > send token into header
-    const bearerHeader = JSON.parse(req.headers["token"]).token;
+    const bearerHeader = JSON.parse(req.headers["token"]);
 // แก้ token Authorization
     //check if bearer is undefined
     if(typeof bearerHeader !== 'undefined'){
@@ -408,8 +406,6 @@ function verifyToken(req,res,next){
         //set the token
         req.token = bearerToken;
 
-        //next middleweare
-        next();
 
     }else{
         //Fobidden
