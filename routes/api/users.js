@@ -194,17 +194,6 @@ router.post('/demographic',verifyToken,(req,res)=>{
             return res.status(404).json({ usernotfound: "Username not found" });
           }
 
-          // Check if faculty and year field isEmpty, if empty user previous data
-          var empty_str = '';
-          
-          if (!empty_str.localeCompare(req.body.faculty)) {
-            req.body.faculty = JSON.parse(user.demographic).faculty
-          }
-          if (!empty_str.localeCompare(req.body.year)) {
-            req.body.year = JSON.parse(user.demographic).year
-          }
-          // End check
-
           user.demographic = {
             age: req.body.age,
             sex: req.body.sex,
