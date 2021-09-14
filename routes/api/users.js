@@ -386,7 +386,7 @@ router.get('/get_UserData',verifyToken,(req,res)=>{
 
 function verifyToken(req,res){
     //Auth header value = > send token into header
-    const bearerHeader = req.headers["token"];
+    const bearerHeader = req.headers["token"].token;
 // แก้ token Authorization
     //check if bearer is undefined
     if(typeof bearerHeader !== 'undefined'){
