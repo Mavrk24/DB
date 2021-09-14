@@ -71,7 +71,7 @@ router.post("/register", (req, res) => {
 // @desc Login user and return JWT token
 // @access Public
 router.use("/login", (req, res) => {
-   res.header('Access-Control-Allow-Origin', 'https://euhabit.netlify.app')
+  res.header('Access-Control-Allow-Origin', 'https://euhabit.netlify.app')
   // Form validation
   const { errors, isValid } = validateLoginInput(req.body);
 
@@ -165,7 +165,7 @@ router.post('/screening',verifyToken,(req,res)=>{
 // @desc update user.demographic using Header and req
 // @access login-required
 router.post('/demographic',verifyToken,(req,res)=>{
-   res.header('Access-Control-Allow-Origin', 'https://euhabit.netlify.app')
+   res.header('Access-Control-Allow-Origin', 'https://euhabit.netlify.app/entry')
   jwt.verify(req.token,keys.secretOrKey ,(err,authData)=>{
     if(err){
 
