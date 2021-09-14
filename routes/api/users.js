@@ -11,6 +11,17 @@ const User = require("../../models/User");
 const authorization = require('../../config/auth')
 
 
+router.post('/test', (req, res) => {
+   res.status(201).json({
+      request: req.body.username,
+      status: 'running',
+      key: keys.secretOrKey
+   })
+  res.header("Access-Control-Allow-Origin", 'https://euhabit.netlify.app');
+  return 0
+});
+
+
 // @route POST api/users/register
 // @desc Register user
 // @access Public
@@ -71,7 +82,7 @@ router.post("/register", (req, res) => {
 // @desc Login user and return JWT token
 // @access Public
 router.use("/login", (req, res) => {
-  res.header('Access-Control-Allow-Origin', 'https://euhabit.netlify.app')
+   res.header('Access-Control-Allow-Origin', 'https://euhabit.netlify.app')
   // Form validation
   const { errors, isValid } = validateLoginInput(req.body);
 
@@ -108,12 +119,12 @@ router.use("/login", (req, res) => {
           payload,
           keys.secretOrKey,
            {
-             expiresIn: 1800 //  expire in 0.5 hour
+             expiresIn: 31556926 //  expire in 1 Y
             },
            (err, token) => {
               // สำหรับใส่ค่าเป็น JSON
               res.json({
-                token: "Bearer " + token
+              token: "Bearer " + token
               });
             }
         );
@@ -165,7 +176,7 @@ router.post('/screening',verifyToken,(req,res)=>{
 // @desc update user.demographic using Header and req
 // @access login-required
 router.post('/demographic',verifyToken,(req,res)=>{
-  //res.header('Access-Control-Allow-Origin', 'https://euhabit.netlify.app/')
+   res.header('Access-Control-Allow-Origin', 'https://euhabit.netlify.app')
   jwt.verify(req.token,keys.secretOrKey ,(err,authData)=>{
     if(err){
 
@@ -384,7 +395,7 @@ router.get('/get_UserData',verifyToken,(req,res)=>{
 });
 
 
-function verifyToken(req,res){
+function verifyToken(req,res,next){
     //Auth header value = > send token into header
     const bearerHeader = JSON.parse(req.headers["token"]).token;
 // แก้ token Authorization
@@ -397,6 +408,8 @@ function verifyToken(req,res){
         //set the token
         req.token = bearerToken;
 
+        //next middleweare
+        next();
 
     }else{
         //Fobidden
