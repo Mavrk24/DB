@@ -124,7 +124,7 @@ router.use("/login", (req, res) => {
         // Sign token
         jwt.sign(
           payload,
-          keys.publicKey,
+          keys.secretOrKey,
            {
              expiresIn: 31556926 //  expire in 1 Y
             },
