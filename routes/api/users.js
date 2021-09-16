@@ -29,11 +29,13 @@ router.post("/register", (req, res) => {
    res.header('Access-Control-Allow-Origin', 'https://euhabit.netlify.app')
   // Form validation
   const { errors, isValid } = validateRegisterInput(req.body);
-  // console.log(req.body)
 
   // Check validation
   if (!isValid) {
-    return res.status(400).json(errors);
+    return res.status(400).json({
+      isError: true,
+      type: errors,
+    });
   }
   
   User.findOne({ email: req.body.email }).then(user => {
@@ -51,7 +53,7 @@ router.post("/register", (req, res) => {
               type: "Username already exists.\nPlease try again." 
             });
           } else {
-             const newUser = new User({
+            const newUser = new User({
             username: req.body.username,
             email: req.body.email,
             password: req.body.password
@@ -88,7 +90,10 @@ router.use("/login", (req, res) => {
 
   // Check validation
   if (!isValid) {
-    return res.status(400).json(errors);
+    return res.status(400).json({
+      isError: ture,
+      type: errors
+    });
   }
 
   const email = req.body.email;
@@ -100,7 +105,10 @@ router.use("/login", (req, res) => {
 
     // Check if user exists
     if (!user) {
-      return res.status(404).json({ emailnotfound: "Email not found" });
+      return res.status(404).json({ 
+        isError: true,
+        type: "Email not found\n Please try again" 
+      });
     }
 
     // Check password
@@ -124,16 +132,18 @@ router.use("/login", (req, res) => {
            (err, token) => {
               // สำหรับใส่ค่าเป็น JSON
               res.json({
-              token: "Bearer " + token
+                isError: false,
+                token: "Bearer " + token
               });
             }
         );
-        console.log('Successfully login')
       } else {
           return res
             .status(400)
-            .json({ passwordincorrect: "Password incorrect"
-          });
+            .json({ 
+              isError: true,
+              type: "Password incorrect\n Please try again"
+            });
         }
     });
   });
