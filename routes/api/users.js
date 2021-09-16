@@ -97,7 +97,6 @@ router.use("/login", (req, res) => {
   }
 
   const email = req.body.email;
-  const username = req.body.username
   const password = req.body.password;
 
   // Find user by email
@@ -125,7 +124,7 @@ router.use("/login", (req, res) => {
         // Sign token
         jwt.sign(
           payload,
-          keys.secretOrKey,
+          keys.publicKey,
            {
              expiresIn: 31556926 //  expire in 1 Y
             },
