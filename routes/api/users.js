@@ -270,6 +270,7 @@ router.post('/qtree',verifyToken,(req,res)=>{
             return res.status(404).json({ usernotfound: "Username not found" });
           }
           var temp = user.qtree.push(req.body);
+          user.is_new = false
           user.save();
         });
 
