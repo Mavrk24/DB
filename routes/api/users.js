@@ -358,7 +358,6 @@ router.get('/logout', (req, res) =>{
 // @desc return user using Header 
 // @access login-required
 router.get('/get_UserData',verifyToken,(req,res)=>{
-   res.header('Access-Control-Allow-Origin', 'https://euhabit.netlify.app')
   jwt.verify(req.token,keys.secretOrKey ,(err,authData)=>{
     if(err){
 
