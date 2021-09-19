@@ -132,7 +132,8 @@ router.use("/login", (req, res) => {
               // สำหรับใส่ค่าเป็น JSON
               res.json({
                 isError: false,
-                token: "Bearer " + token
+                token: "Bearer " + token,
+                isNew: user.is_new
               });
             }
         );

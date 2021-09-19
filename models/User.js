@@ -58,6 +58,10 @@ const UserSchema = new Schema(
         isNew: true,
         token: ''
       }
+    },
+    is_new: {
+      type: Boolean,
+      default: true
     }
     // end here
   },
