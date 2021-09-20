@@ -106,7 +106,7 @@ router.use("/login", (req, res) => {
     if (!user) {
       return res.status(404).json({ 
         isError: true,
-        type: "ไม่พบ Email\nโปรดลองอีกครั้ง" 
+        type: "Username หรือ Password ไม่ถูกต้อง\nโปรดลองอีกครั้ง" 
       });
     }
 
@@ -142,7 +142,7 @@ router.use("/login", (req, res) => {
             .status(400)
             .json({ 
               isError: true,
-              type: "รหัสผ่านไม่ถูกต้อง\nโปรดลองอีกครั้ง"
+              type: "Username หรือ Password ไม่ถูกต้อง\nโปรดลองอีกครั้ง"
             });
         }
     });
