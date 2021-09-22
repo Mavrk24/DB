@@ -226,36 +226,6 @@ router.post('/demographic',verifyToken,(req,res)=>{
 
 
 // @access login-required
-router.post('/workplace',verifyToken,(req,res)=>{
-  jwt.verify(req.token,keys.secretOrKey ,(err,authData)=>{
-    if(err){
-
-      //Forbidden
-      res.sendErr(403);
-    } else {
-      async function update_workplace(){
-        const username = authData.username
-        
-        // Find user by username
-        User.findOne({ username }).then(user => {
-
-          // Check if user exists
-          if (!user) {
-            return res.status(404).json({ usernotfound: "Username not found" });
-          }
-          user.workplace = req.body;
-          user.save();
-        });
-
-        return res.send("Updated")
-      }
-      console.log('Workplace data updated!')
-      update_workplace();
-    }
-  });
-});
-
-// @access login-required
 router.post('/qtree',verifyToken,(req,res)=>{
    res.header('Access-Control-Allow-Origin', 'https://euhabit.netlify.app')
   jwt.verify(req.token,keys.secretOrKey ,(err,authData)=>{
