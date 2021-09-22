@@ -34,7 +34,7 @@ router.post("/register", (req, res) => {
   if (!isValid) {
     return res.status(400).json({
       isError: true,
-      type: errors,
+      errors,
     });
   }
   
