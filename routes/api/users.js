@@ -45,7 +45,7 @@ router.post("/register", (req, res) => {
           type: "Email already exists.\nPlease try again." 
         });
       } else {
-
+        req.body.username = req.body.username.toLowerCase()
         User.findOne({ username: req.body.username }).then(user =>{
           if (user) {
             return res.status(400).json({ 
