@@ -37,7 +37,7 @@ router.post("/register", (req, res) => {
       errors,
     });
   }
-  req.body.email.toLowerCase()
+  req.body.email = req.body.email.toLowerCase()
   User.findOne({ email: req.body.email }).then(user => {
       if (user) {
         return res.status(400).json({ 
