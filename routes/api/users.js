@@ -96,7 +96,7 @@ router.use("/login", (req, res) => {
     });
   }
 
-  const email = req.body.email;
+  const email = req.body.email.toLowerCase();
   const password = req.body.password;
 
   // Find user by email
