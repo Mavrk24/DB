@@ -2,32 +2,32 @@ from anytree import Node, RenderTree,AsciiStyle,PreOrderIter
 from anytree.dotexport import RenderTreeGraph
 
 root = Node('root', value = 'null', label='') 
-a = Node('Do you use laptop ?', parent=root, value='null',label='') #-
-a1 = Node('For work / study ?', parent=a, value='null',label='') #-
-a2 = Node('For entertainment (Netflix,Disney+ etc.) ?', parent=a, value='null',label='') #-
-a11 = Node('> 3 hours per day ?', parent=a1, value='null',children=[
-    Node('on sofa / on bed ?',  value='null',label='Have a life'),#5
-    Node('on lap ?',  value='null',label='Have a life'), #6
-    Node('do you have to look down on screen ?', value='null',label='Have a life')], label='') #7s
-a12 = Node('Do you have to look while you type ?', parent=a1 , value='null',label='Have a life'), 
-a21 = Node('> 3 hours per day ?', parent=a2, value='null', children=[ 
-    Node('on sofa / on bed ?',  value='null',label='Have a life'), #10
-    Node('on lap ?',  value='null',label='Have a life'), #11
-    Node('do you have to look down on screen ?', value='null',label='Have a life')], label='') #12s
-b = Node('Do you use iPad/tablet ?', parent=root, value='null',label='')
-b1 = Node('For work ?', parent=b, value='null',label='')
-b11 = Node('> 3 hours per day ?', parent=b1, value='null',children=[
-    Node('on table / on lap (or bed) ?',  value='null',label='Have a life')], label='') #16
-b12 = Node('Do you use without standing cases ?', parent=b1, value='null',label='') #17
-b2 = Node('For entertainment (Netflix,Disney+ etc.) ?', parent=b, value='null',label='')
-b21 = Node('> 3 hours per day ?', parent=b2, value='null',children=[
-    Node('on table / on lap (or bed) ?',  value='null',label='Have a life')], label='') #20
-b22 = Node('Do you use without standing cases ?', parent=b2, value='null',label='') #21
-c = Node('Do you do manual work (drawing, drafting, sketching) ?', parent=root, value='null',label='')
-c1 = Node('Do you do the work on a table', parent=c, value='null',label='')
-c11 = Node('Is it a slope table ?', parent=c1, value='null',label='') #24s
-d = Node('Do you use a chair without arm rest ?', parent=root, value='null',label='')
-d1 = Node('Do you use a chair without lumbar back support ?', parent=d, value='null',label='')
+a = Node('คุณใช้งานคอมพิวเตอร์หรือโน๊ตบุ๊ค ?', parent=root, value='null',label='') #-
+a1 = Node('สำหรัลเรียนหรือทำงาน?', parent=a, value='null',label='') #-
+a2 = Node('สำหรับความบันเทิง ?', parent=a, value='null',label='') #-
+a11 = Node('มากกว่า 3 ชั่วโมงต่อวันหรือไม่ ?', parent=a1, value='null',children=[
+    Node('บนเตียงหรือโซฟาหรือไม่ ?',  value='null',label='Have a life'),#5
+    Node('บนหน้าตัก ?',  value='null',label='Have a life'), #6
+    Node('คุณต้องก้มลงเพื่อมองหน้าจอหรือไม่ ?', value='null',label='Have a life')], label='') #7s
+a12 = Node('คุณต้องก้มลงขณะพิมพ์หรือไม่ ?', parent=a1 , value='null',label='Have a life'), 
+a21 = Node('มากกว่า 3 ชั่วโมงต่อวันหรือไม่ ?', parent=a2, value='null', children=[ 
+    Node('บนเตียงหรือโซฟาหรือไม่ ?',  value='null',label='Have a life'), #10
+    Node('บนหน้าตัก ?',  value='null',label='Have a life'), #11
+    Node('คุณต้องก้มลงเพื่อมองหน้าจอหรือไม่ ?', value='null',label='Have a life')], label='') #12s
+b = Node('คุณใช้งาน iPad หรือ Tablet หรือไม่ ?', parent=root, value='null',label='')
+b1 = Node('สำหรับเรียนหรือทำงาน ?', parent=b, value='null',label='')
+b11 = Node('มากกว่า 3 ชั่วโมงต่อวันหรือไม่ ?', parent=b1, value='null',children=[
+    Node('บนโต๊ะ, บนเตียงหรือบนหน้าตักหรือไม่ ?',  value='null',label='Have a life')], label='') #16
+b12 = Node('คุณใช้งานโดยไม่มีอุปกรณ์เสริมในการตั้ง เช่น Standing case หรือไม่ ?', parent=b1, value='null',label='') #17
+b2 = Node('สำหรับความบันเทิง ?', parent=b, value='null',label='')
+b21 = Node('มากกว่า 3 ชั่วโมงต่อวันหรือไม่ ?', parent=b2, value='null',children=[
+    Node('บนโต๊ะ, บนเตียงหรือบนหน้าตักหรือไม่ ?',  value='null',label='Have a life')], label='') #20
+b22 = Node('คุณใช้งานโดยไม่มีอุปกรณ์เสริมในการตั้ง เช่น Standing case หรือไม่ ?', parent=b2, value='null',label='') #21
+c = Node('คุณทำงานวาดเขียนบ่อยหรือไม่ ?', parent=root, value='null',label='')
+c1 = Node('คุณทำงานวาดเขียนบนโต๊ะหรือไม่', parent=c, value='null',label='')
+c11 = Node('โต๊ะนั้นมีความชันที่เหมาะสมหรือไม่ ?', parent=c1, value='null',label='') #24s
+d = Node('เก้าอี้ที่คุณนั่งไม่มีที่พักแขนใช่หรือไม่ ?', parent=root, value='null',label='')
+d1 = Node('เก้าอี้ที่คุณนั่งไม่มีส่วนที่รอลรับนำ้หนักส่วนเอวใช่หรือไม่ ?', parent=d, value='null',label='')
 
 arr = []
 for a in PreOrderIter(root):
