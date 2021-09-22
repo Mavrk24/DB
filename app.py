@@ -4,6 +4,7 @@ from qTree import display, getQ, returnQ,valuate
 from anytree import Node, RenderTree,AsciiStyle,PreOrderIter
 from anytree.dotexport import RenderTreeGraph
 from operator import itemgetter
+from MDP import MDP, valueiteration
 
 
 app = Flask(__name__)
@@ -41,9 +42,8 @@ def login():
 
 @app.route("/subentry" , methods=['POST'])
 def sub():
-    entry = request.get_json()
-    session["entry"]=entry
-    return entry 
+    entry = request.get_json(force=True)
+    return entry
 
 @app.route("/request")
 def getreq():
@@ -81,18 +81,26 @@ def merge(list1, list2):
             break
     return merged_list
 
-@app.route("/intervention")
+@app.route("/intervention" , methods=['POST'])
 def intervent():
     num=valuate()
     new_array = []
-    arr = session.get("entry")['payload']
-    index = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25]
+    arr = request.get_json(force=True)['payload']
+    index = [0,1,2,3,4,5,6,7,8,9,10,11]
     array = merge(arr,index)
     array.sort(key=itemgetter(0),reverse=True)
     array = merge(array,num)
     new_array = sorted(array,key=itemgetter(1),reverse=True)
     return {'text': new_array}
 
+
+@app.route("/mdp", methods=['POST'])
+def markov():
+    value = int(request.get_json(force=True)['int_value'])
+    mdp = MDP(N=value)
+    payload = valueiteration(mdp)
+    data = {'action': list(payload.items())[-1][-1]}
+    return jsonify(data)
 
 @app.route('/api', methods=['GET'])
 def get_api():
