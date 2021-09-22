@@ -32,9 +32,13 @@ router.post("/register", (req, res) => {
 
   // Check validation
   if (!isValid) {
+    var res_errors = []
+    for (error in errors) {
+      res_errors.push(errors.error)
+    }
     return res.status(400).json({
       isError: true,
-      errors,
+      type: res_errors,
     });
   }
   req.body.email = req.body.email.toLowerCase()
