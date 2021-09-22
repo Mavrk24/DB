@@ -2,19 +2,17 @@ from anytree import Node, RenderTree,AsciiStyle,PreOrderIter
 from anytree.dotexport import RenderTreeGraph
 
 root = Node('root', value = 'null', label='') 
-a1 = Node('คุณใช้งานคอมพิวเตอร์หรือโน๊ตบุ๊คมากกว่า 3 ชั่วโมงต่อวันหรือไม่ ?', parent=root, value='null',children=[
-    Node('คุณใช้งานคอมพิวเตอร์หรือโน๊ตบุ๊คบนเตียงหรือโซฟาหรือไม่ ?',  value='null',label=''),#5
-    Node('คุณใช้งานคอมพิวเตอร์หรือโน๊ตบุ๊คบนหน้าตัก ?',  value='null',label=''), #6
-    Node('คุณต้องก้มลงเพื่อมองหน้าจอหรือไม่ ?', value='null',label='Have a life')], label='') #7s
+a1 = Node('คุณใช้งานคอมพิวเตอร์หรือโน๊ตบุ๊คมากกว่า 3 ชั่วโมงต่อวันหรือไม่ ?', parent=root, value='null',children=[ #1
+    Node('คุณใช้งานคอมพิวเตอร์หรือโน๊ตบุ๊คบนเตียงหรือโซฟาหรือไม่ ?',  value='null',label='Have a life'),#2
+    Node('คุณใช้งานคอมพิวเตอร์หรือโน๊ตบุ๊คบนหน้าตัก ?',  value='null',label='Have a life'), #3
+    Node('คุณต้องก้มลงเพื่อมองหน้าจอหรือไม่  ?', value='null',label='Have a life')], label='') #4s
 a2 = Node('คุณต้องก้มลงขณะพิมพ์หรือไม่ ?', parent=root , value='null',label='')
-
-b = Node('คุณใช้งาน iPad หรือ Tablet มากกว่า 3 ชั่วโมงต่อวันหรือไม่ ?', parent=root, value='null',children=[
-    Node('คุณใช้งาน iPad หรือ Tablet บนโต๊ะ, บนเตียงหรือบนหน้าตักหรือไม่ ?',  value='null',label='')], label='') #16
-b12 = Node('คุณใช้งานโดยไม่มีอุปกรณ์เสริมในการตั้ง เช่น Standing case หรือไม่ ?', parent=root, value='null',label='') #17
-
+b11 = Node('คุณใช้งาน iPad หรือ Tablet มากกว่า 3 ชั่วโมงต่อวันหรือไม่ ?', parent=root, value='null',children=[
+    Node('คุณใช้งาน iPad หรือ Tablet บนโต๊ะ, บนเตียงหรือบนหน้าตักหรือไม่ ?',  value='null',label='')], label='') #7
+b2 = Node('คุณใช้งานโดยไม่มีอุปกรณ์เสริมในการตั้ง เช่น Standing case หรือไม่ ?', parent=root, value='null',label='') #8
 c = Node('คุณทำงานวาดเขียนบ่อยหรือไม่ ?', parent=root, value='null',label='')
 c1 = Node('คุณทำงานวาดเขียนบนโต๊ะหรือไม่', parent=c, value='null',label='')
-c11 = Node('โต๊ะนั้นมีความชันที่เหมาะสมหรือไม่ ?', parent=c1, value='null',label='') #24s
+c11 = Node('เก้าอี้ที่คุณนั่งไม่มีที่พักแขนใช่หรือไม่ ?', parent=c1, value='null',label='') #11s
 d = Node('เก้าอี้ที่คุณนั่งไม่มีที่พักแขนใช่หรือไม่ ?', parent=root, value='null',label='')
 d1 = Node('เก้าอี้ที่คุณนั่งไม่มีส่วนที่รอลรับนำ้หนักส่วนเอวใช่หรือไม่ ?', parent=d, value='null',label='')
 
