@@ -33,8 +33,8 @@ router.post("/register", (req, res) => {
   // Check validation
   if (!isValid) {
     var res_errors = []
-    for (error in errors) {
-      res_errors.push(errors.error)
+    for ( var error in errors) {
+      res_errors.push(errors[error])
     }
     return res.status(400).json({
       isError: true,
